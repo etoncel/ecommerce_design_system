@@ -79,7 +79,9 @@ class _QuantitySelectorState extends State<QuantitySelector> {
             vertical: AppSpacing.spaceXxs,
           ),
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.textLight.withOpacity(0.5)),
+            border: Border.all(
+              color: AppColors.textLight.withValues(alpha: 0.5),
+            ),
             borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
           ),
           child: AppText(

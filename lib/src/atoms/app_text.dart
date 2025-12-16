@@ -13,7 +13,9 @@ class AppText extends StatelessWidget {
   const AppText({
     required this.text,
     required this.style,
-    this.textAlign, // Nuevo parámetro
+    this.textAlign,
+    this.maxLines,
+    this.overflow,
     super.key,
   });
 
@@ -26,12 +28,20 @@ class AppText extends StatelessWidget {
   /// Cómo alinear el texto horizontalmente.
   final TextAlign? textAlign;
 
+  /// El número máximo de líneas para mostrar el texto.
+  final int? maxLines;
+
+  /// Cómo manejar el texto que excede el número máximo de líneas.
+  final TextOverflow? overflow;
+
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: style,
-      textAlign: textAlign, // Pasar el textAlign al Text widget
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
     );
   }
 }

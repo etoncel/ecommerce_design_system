@@ -24,3 +24,6 @@ export 'package:ecommerce_sample_design_system/src/molecules/app_search_bar.dart
 export 'package:ecommerce_sample_design_system/src/molecules/product_rating.dart';
 export 'package:ecommerce_sample_design_system/src/molecules/category_item.dart';
 export 'package:ecommerce_sample_design_system/src/molecules/quantity_selector.dart';
+
+// Organisms
+export 'package:ecommerce_sample_design_system/src/organisms/product_card.dart';

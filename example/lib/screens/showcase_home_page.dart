@@ -1,6 +1,7 @@
 import 'package:example/screens/atoms_showcase_screen.dart';
 import 'package:example/screens/foundations_showcase_screen.dart';
-import 'package:example/screens/molecules_showcase_screen.dart'; // New import
+import 'package:example/screens/molecules_showcase_screen.dart';
+import 'package:example/screens/organisms_showcase_screen.dart';
 import 'package:flutter/material.dart';
 
 class ShowcaseHomePage extends StatefulWidget {
@@ -17,10 +18,7 @@ class _ShowcaseHomePageState extends State<ShowcaseHomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(
-      length: 5,
-      vsync: this,
-    ); // 5 tabs for Foundations, Atoms, Molecules, Organisms, Templates
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -50,13 +48,9 @@ class _ShowcaseHomePageState extends State<ShowcaseHomePage>
         children: const [
           FoundationsShowcaseScreen(),
           AtomsShowcaseScreen(),
-          MoleculesShowcaseScreen(), // Replaced placeholder
-          Center(
-            child: Text('Organisms Showcase (Coming Soon)'),
-          ), // Placeholder
-          Center(
-            child: Text('Templates Showcase (Coming Soon)'),
-          ), // Placeholder
+          MoleculesShowcaseScreen(),
+          OrganismsShowcaseScreen(),
+          Center(child: Text('Templates Showcase (Coming Soon)')),
         ],
       ),
     );
