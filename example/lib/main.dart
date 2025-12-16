@@ -1,5 +1,5 @@
 import 'package:ecommerce_sample_design_system/ecommerce_sample_design_system.dart';
-import 'package:example/screens/foundations_showcase_screen.dart';
+import 'package:example/screens/showcase_home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,9 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Design System Showroom',
-      theme: AppTheme.theme, // Aplicamos el tema global del sistema de diseño
-      home:
-          const FoundationsShowcaseScreen(), // Mostramos la pantalla de tokens
+      theme: AppTheme.theme,
+      home: const ShowcaseHomePage(), // Set ShowcaseHomePage as the home widget
     );
   }
 }

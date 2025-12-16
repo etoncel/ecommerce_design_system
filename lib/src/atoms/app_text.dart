@@ -13,6 +13,7 @@ class AppText extends StatelessWidget {
   const AppText({
     required this.text,
     required this.style,
+    this.textAlign, // Nuevo parámetro
     super.key,
   });
 
@@ -22,11 +23,15 @@ class AppText extends StatelessWidget {
   /// El estilo de texto que se va a aplicar.
   final TextStyle style;
 
+  /// Cómo alinear el texto horizontalmente.
+  final TextAlign? textAlign;
+
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: style,
+      textAlign: textAlign, // Pasar el textAlign al Text widget
     );
   }
 }

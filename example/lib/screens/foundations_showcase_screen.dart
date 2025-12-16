@@ -178,7 +178,7 @@ class FoundationsShowcaseScreen extends StatelessWidget {
           width: AppSizes.sL * 2, // Example usage
           height: AppSizes.sM,
           decoration: BoxDecoration(
-            color: Colors.deepPurple.withOpacity(0.3),
+            color: Colors.deepPurple.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(AppSizes.sXS),
           ),
           alignment: Alignment.center,
