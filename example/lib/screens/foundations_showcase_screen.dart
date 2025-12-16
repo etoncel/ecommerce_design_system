@@ -9,9 +9,7 @@ class FoundationsShowcaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Foundations Showcase'),
-      ),
+      appBar: AppBar(title: const Text('Foundations Showcase')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -73,12 +71,9 @@ class FoundationsShowcaseScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
               Text(
-                name,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text(
-                '#${colorValue.value.toRadixString(16).toUpperCase().substring(2)}',
+                '#${colorValue.toARGB32().toRadixString(16).toUpperCase().substring(2)}',
               ),
             ],
           ),
@@ -107,10 +102,7 @@ class FoundationsShowcaseScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-          Text(
-            'Ejemplo de texto con este estilo',
-            style: style,
-          ),
+          Text('Ejemplo de texto con este estilo', style: style),
           Text(
             'Size: ${style.fontSize?.toStringAsFixed(1)}, Weight: ${style.fontWeight}',
             style: const TextStyle(fontSize: 12, color: Colors.grey),
@@ -162,10 +154,7 @@ class FoundationsShowcaseScreen extends StatelessWidget {
   Widget _buildSpacingItem(String name, double value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Text(
-        '$name: $value',
-        style: const TextStyle(fontSize: 16),
-      ),
+      child: Text('$name: $value', style: const TextStyle(fontSize: 16)),
     );
   }
 
@@ -202,10 +191,7 @@ class FoundationsShowcaseScreen extends StatelessWidget {
   Widget _buildSizeItem(String name, double value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Text(
-        '$name: $value',
-        style: const TextStyle(fontSize: 16),
-      ),
+      child: Text('$name: $value', style: const TextStyle(fontSize: 16)),
     );
   }
 
@@ -232,10 +218,7 @@ class FoundationsShowcaseScreen extends StatelessWidget {
         children: [
           Icon(iconData, size: 24.0),
           AppSpacing.horizontalS,
-          Text(
-            name,
-            style: const TextStyle(fontSize: 16),
-          ),
+          Text(name, style: const TextStyle(fontSize: 16)),
         ],
       ),
     );
