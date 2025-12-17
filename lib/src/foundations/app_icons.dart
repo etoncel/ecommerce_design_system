@@ -32,4 +32,19 @@ class AppIcons {
 
   /// Ícono de menos.
   static const IconData minus = Icons.remove;
+
+  /// Ícono para cerrar.
+  static const IconData close = Icons.close;
+
+  /// Ícono de inicio.
+  static const IconData home = Icons.home;
+
+  /// Ícono de categoría.
+  static const IconData category = Icons.category;
+
+  /// Ícono de carrito de compras.
+  static const IconData cart = Icons.shopping_cart;
+
+  /// Ícono de perfil de usuario.
+  static const IconData profile = Icons.person;
 }
