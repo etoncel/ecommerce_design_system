@@ -113,40 +113,29 @@ class FoundationsShowcaseScreen extends StatelessWidget {
   }
 
   Widget _buildAppSpacing() {
+    Row getSample({required Widget spacingWidget}) {
+      return Row(
+        children: [
+          Container(width: 50, height: 20, color: Colors.blueGrey),
+          spacingWidget,
+          Container(width: 50, height: 20, color: Colors.blueGrey),
+        ],
+      );
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildSpacingItem('Space XXS', AppSpacing.spaceXxs),
+        getSample(spacingWidget: AppSpacing.horizontalXxs),
         _buildSpacingItem('Space XS', AppSpacing.spaceXs),
+        getSample(spacingWidget: AppSpacing.horizontalXs),
         _buildSpacingItem('Space S', AppSpacing.spaceS),
+        getSample(spacingWidget: AppSpacing.horizontalS),
         _buildSpacingItem('Space M', AppSpacing.spaceM),
+        getSample(spacingWidget: AppSpacing.horizontalM),
         _buildSpacingItem('Space L', AppSpacing.spaceL),
-        AppSpacing.verticalS,
-        const Text(
-          'Visualización de Espaciados (horizontal y vertical):',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        AppSpacing.verticalXs,
-        Row(
-          children: [
-            Container(width: 50, height: 20, color: Colors.blueGrey),
-            AppSpacing.horizontalXxs,
-            Container(width: 50, height: 20, color: Colors.blueGrey),
-            AppSpacing.horizontalS,
-            Container(width: 50, height: 20, color: Colors.blueGrey),
-          ],
-        ),
-        AppSpacing.verticalXs,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(width: 50, height: 20, color: Colors.blueGrey),
-            AppSpacing.verticalXxs,
-            Container(width: 50, height: 20, color: Colors.blueGrey),
-            AppSpacing.verticalS,
-            Container(width: 50, height: 20, color: Colors.blueGrey),
-          ],
-        ),
+        getSample(spacingWidget: AppSpacing.horizontalL),
       ],
     );
   }
@@ -159,31 +148,30 @@ class FoundationsShowcaseScreen extends StatelessWidget {
   }
 
   Widget _buildAppSizes() {
+    Widget getSample(double size) {
+      return Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          color: Colors.deepPurple.withValues(alpha: 0.3),
+        ),
+        alignment: Alignment.center,
+      );
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSizeItem('Border Radius Small', AppSizes.sXS),
         _buildSizeItem('Extra Extra Small', AppSizes.sXXS),
+        getSample(AppSizes.sXXS),
         _buildSizeItem('Extra Small', AppSizes.sXS),
+        getSample(AppSizes.sXS),
         _buildSizeItem('Small', AppSizes.sS),
+        getSample(AppSizes.sXS),
         _buildSizeItem('Medium', AppSizes.sM),
+        getSample(AppSizes.sM),
         _buildSizeItem('Large', AppSizes.sL),
-        AppSpacing.verticalS,
-        const Text(
-          'Visualización de AppSizes:',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        AppSpacing.verticalXs,
-        Container(
-          width: AppSizes.sL * 2, // Example usage
-          height: AppSizes.sM,
-          decoration: BoxDecoration(
-            color: Colors.deepPurple.withValues(alpha: 0.3),
-            borderRadius: BorderRadius.circular(AppSizes.sXS),
-          ),
-          alignment: Alignment.center,
-          child: Text('Ancho: ${AppSizes.sL * 2}, Alto: ${AppSizes.sM}'),
-        ),
+        getSample(AppSizes.sL),
       ],
     );
   }
