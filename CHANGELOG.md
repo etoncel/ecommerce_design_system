@@ -1,3 +1,8 @@
+## 0.0.2 
+
+### Modificado
+- Se modifican los ejemplos de los foundations de espaciado y tamaño en el showcase para que sean más fáciles de visualizar.
+
 ## 0.0.1 - Versión Inicial
 
 ### Añadido
