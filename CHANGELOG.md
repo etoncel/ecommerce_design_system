@@ -1,3 +1,8 @@
+## 0.0.3 
+
+### Modificado
+- Se renombró el elemento de la tarjeta. Se creó una lista para los elementos. Se renombró la documentación.
+
 ## 0.0.2 
 
 ### Modificado
