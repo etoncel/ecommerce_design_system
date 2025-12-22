@@ -7,26 +7,26 @@ import 'package:ecommerce_sample_design_system/src/foundations/app_spacing.dart'
 import 'package:ecommerce_sample_design_system/src/foundations/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-/// El widget `CategoryItem` representa un elemento de categoría de producto.
+/// El widget `CardItem` representa un elemento genérico con imagen y texto.
 ///
 /// Combina un `AppCircularImage` y un `AppText` para mostrar la imagen y el nombre
-/// de la categoría.
-class CategoryItem extends StatelessWidget {
-  /// Crea un widget de elemento de categoría.
+/// del elemento.
+class SingleListItem extends StatelessWidget {
+  /// Crea un widget de elemento de lista.
   ///
-  /// La [imageUrl] y [categoryName] deben ser proporcionadas.
-  const CategoryItem({
+  /// La [imageUrl] y [itemName] deben ser proporcionadas.
+  const SingleListItem({
     required this.imageUrl,
-    required this.categoryName,
+    required this.itemName,
     this.onTap,
     super.key,
   });
 
-  /// La URL de la imagen de la categoría.
+  /// La URL de la imagen del elemento.
   final String imageUrl;
 
-  /// El nombre de la categoría.
-  final String categoryName;
+  /// El nombre del elemento.
+  final String itemName;
 
   /// Función de devolución de llamada que se llama cuando se toca el elemento.
   final VoidCallback? onTap;
@@ -37,18 +37,14 @@ class CategoryItem extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          AppCircularImage(
-            imageUrl: imageUrl,
-            size: 60.0,
-          ),
+          AppCircularImage(imageUrl: imageUrl, size: 60.0),
           AppSpacing.verticalXxs,
-          SizedBox(
-            width: 70, // Ancho fijo para el texto para evitar desbordamiento
-            child: AppText(
-              text: categoryName,
-              style: AppTextStyles.caption.copyWith(color: AppColors.textDark),
-              textAlign: TextAlign.center,
-            ),
+          AppText(
+            text: itemName,
+            style: AppTextStyles.caption.copyWith(color: AppColors.textDark),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

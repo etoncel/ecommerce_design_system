@@ -17,8 +17,8 @@ class MoleculesShowcaseScreen extends StatelessWidget {
             _buildAppSearchBar(),
             _buildSectionTitle('ProductRating'),
             _buildProductRating(),
-            _buildSectionTitle('CategoryItem'),
-            _buildCategoryItems(),
+            _buildSectionTitle('SingleListItem'),
+            _buildSingleListItems(),
             _buildSectionTitle('QuantitySelector'),
             _buildQuantitySelector(),
           ],
@@ -62,7 +62,7 @@ class MoleculesShowcaseScreen extends StatelessWidget {
         children: [
           ProductRating(rating: 4.5),
           SizedBox(height: 8),
-          ProductRating(rating: 3.0, color: Colors.grey),
+          ProductRating(rating: 3.0),
           SizedBox(height: 8),
           ProductRating(rating: 5.0, iconSize: 20.0, fontSize: 16.0),
         ],
@@ -70,26 +70,28 @@ class MoleculesShowcaseScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryItems() {
+  Widget _buildSingleListItems() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
-          CategoryItem(
-            imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=Cat1',
-            categoryName: 'Category 1',
+          SingleListItem(
+            imageUrl:
+                'https://via.placeholder.com/150/FF0000/FFFFFF?text=Item1',
+            itemName: 'Item 1',
             onTap: () {
               // ignore: avoid_print
-              print('Category 1 tapped!');
+              print('Item 1 tapped!');
             },
           ),
           AppSpacing.horizontalM,
-          CategoryItem(
-            imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Cat2',
-            categoryName: 'Category 2',
+          SingleListItem(
+            imageUrl:
+                'https://via.placeholder.com/150/0000FF/FFFFFF?text=Item2',
+            itemName: 'Item 2',
             onTap: () {
               // ignore: avoid_print
-              print('Category 2 tapped!');
+              print('Item 2 tapped!');
             },
           ),
         ],

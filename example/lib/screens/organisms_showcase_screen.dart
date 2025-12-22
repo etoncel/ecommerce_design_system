@@ -57,6 +57,9 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
             _buildSectionTitle('HorizontalProductList'),
             _buildHorizontalProductList(),
             const SizedBox(height: AppSpacing.spaceL),
+            _buildSectionTitle('SingleHorizontalList'),
+            _buildSingleHorizontalList(),
+            const SizedBox(height: AppSpacing.spaceL),
             _buildSectionTitle('ProductCard (Individual)'),
             _buildProductCards(),
           ],
@@ -104,33 +107,70 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
       productCards: [
         ProductCard(
           imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=P1',
-          productName: 'Product 1',
-          productPrice: '\$19.99',
+          title: 'Product 1',
+          subtitle: '\$19.99',
           rating: 4.5,
           onTap: () {},
         ),
         ProductCard(
           imageUrl: 'https://via.placeholder.com/150/00FF00/FFFFFF?text=P2',
-          productName: 'Product 2',
-          productPrice: '\$29.50',
+          title: 'Product 2',
+          subtitle: '\$29.50',
           rating: 3.8,
           onTap: () {},
         ),
         ProductCard(
           imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=P3',
-          productName: 'Product 3',
-          productPrice: '\$9.00',
+          title: 'Product 3',
+          subtitle: '\$9.00',
           onTap: () {},
         ),
         ProductCard(
           imageUrl: 'https://via.placeholder.com/150/FFFF00/000000?text=P4',
-          productName: 'Product 4',
-          productPrice: '\$12.49',
+          title: 'Product 4',
+          subtitle: '\$12.49',
           rating: 5.0,
           onTap: () {},
         ),
       ],
     );
+  }
+
+  Widget _buildSingleHorizontalList() {
+    final items = [
+      SingleListItemData(
+        imageUrl: 'https://via.placeholder.com/150/FFC107/000000?text=C1',
+        itemName: 'Item 1',
+        onTap: () => debugPrint('Tapped Item 1'),
+      ),
+      SingleListItemData(
+        imageUrl: 'https://via.placeholder.com/150/4CAF50/FFFFFF?text=C2',
+        itemName: 'Item 2',
+        onTap: () => debugPrint('Tapped Item 2'),
+      ),
+      SingleListItemData(
+        imageUrl: 'https://via.placeholder.com/150/2196F3/FFFFFF?text=C3',
+        itemName: 'Item 3',
+        onTap: () => debugPrint('Tapped Item 3'),
+      ),
+      SingleListItemData(
+        imageUrl: 'https://via.placeholder.com/150/E91E63/FFFFFF?text=C4',
+        itemName: 'Item 4',
+        onTap: () => debugPrint('Tapped Item 4'),
+      ),
+      SingleListItemData(
+        imageUrl: 'https://via.placeholder.com/150/9C27B0/FFFFFF?text=C5',
+        itemName: 'Item 5',
+        onTap: () => debugPrint('Tapped Item 5'),
+      ),
+      SingleListItemData(
+        imageUrl: 'https://via.placeholder.com/150/F44336/FFFFFF?text=C6',
+        itemName: 'Item 6',
+        onTap: () => debugPrint('Tapped Item 6'),
+      ),
+    ];
+
+    return SingleHorizontalList(title: 'Browse Items', items: items);
   }
 
   Widget _buildProductCards() {
@@ -141,15 +181,15 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
       children: [
         ProductCard(
           imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=Prod1',
-          productName: 'Product Name 1 with a long title',
-          productPrice: '\$19.99',
+          title: 'Product Name 1 with a long title',
+          subtitle: '\$19.99',
           rating: 4.5,
           onTap: () {},
         ),
         ProductCard(
           imageUrl: 'https://via.placeholder.com/150/00FF00/FFFFFF?text=Prod2',
-          productName: 'Product Name 2',
-          productPrice: '\$29.50',
+          title: 'Product Name 2',
+          subtitle: '\$29.50',
           rating: 3.8,
           onTap: () {},
         ),

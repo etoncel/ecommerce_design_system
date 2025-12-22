@@ -9,18 +9,15 @@ import 'package:ecommerce_sample_design_system/src/molecules/product_rating.dart
 import 'package:flutter/material.dart';
 
 /// El widget `ProductCard` es una tarjeta que muestra información de un producto.
-///
-/// Combina `AppCircularImage`, `AppText` para nombre y precio, `ProductRating`
-/// y un botón (no implementado directamente aquí, pero podría ser un `AppButton`
-/// para añadir al carrito).
+/// incluyendo su calificación
 class ProductCard extends StatelessWidget {
   /// Crea una tarjeta de producto.
   ///
-  /// El [imageUrl], [productName], y [productPrice] deben ser proporcionados.
+  /// El [imageUrl], [title], y [subtitle] deben ser proporcionados.
   const ProductCard({
     required this.imageUrl,
-    required this.productName,
-    required this.productPrice,
+    required this.title,
+    required this.subtitle,
     this.rating = 0.0,
     this.onTap,
     super.key,
@@ -30,10 +27,10 @@ class ProductCard extends StatelessWidget {
   final String imageUrl;
 
   /// El nombre del producto.
-  final String productName;
+  final String title;
 
   /// El precio del producto.
-  final String productPrice;
+  final String subtitle;
 
   /// La calificación del producto.
   ///
@@ -55,7 +52,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppSpacing.spaceS),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withAlpha((255 * 0.05).round()),
+              color: AppColors.black.withAlpha((255 * 0.05).round()),
               spreadRadius: 1,
               blurRadius: 5,
               offset: const Offset(0, 2),
@@ -65,15 +62,10 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: AppCircularImage(
-                imageUrl: imageUrl,
-                size: 100,
-              ),
-            ),
+            Center(child: AppCircularImage(imageUrl: imageUrl, size: 100)),
             AppSpacing.verticalS,
             AppText(
-              text: productName,
+              text: title,
               style: AppTextStyles.body.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.textDark,
@@ -83,11 +75,11 @@ class ProductCard extends StatelessWidget {
             ),
             AppSpacing.verticalXxs,
             AppText(
-              text: productPrice,
+              text: subtitle,
               style: AppTextStyles.headline2.copyWith(color: AppColors.primary),
             ),
             AppSpacing.verticalXxs,
-            if (rating > 0) ProductRating(rating: rating),
+            ProductRating(rating: rating),
           ],
         ),
       ),
