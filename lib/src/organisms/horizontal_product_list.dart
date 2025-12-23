@@ -36,6 +36,7 @@ class HorizontalProductList extends StatelessWidget {
         SizedBox(
           height: listHeight,
           child: ListView.separated(
+            clipBehavior: Clip.none,
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.spaceS),
             scrollDirection: Axis.horizontal,
             itemCount: productCards.length,
