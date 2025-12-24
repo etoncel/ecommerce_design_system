@@ -41,7 +41,7 @@ class AppSearchBar extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(4.0),
             child: AppButton(
-              onPressed: () {},
+              onPressed: () => onSubmitted?.call(controller?.text ?? ""),
               isPrimary: false,
               text: "Search",
               size: AppSizes.sXS,

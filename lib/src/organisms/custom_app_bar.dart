@@ -32,6 +32,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Callback para cuando el texto de búsqueda cambia.
   final ValueChanged<String>? onSearchChanged;
 
+  /// Función de devolución de llamada que se llama cuando el usuario envía el texto (ej. presiona Enter).
+  final ValueChanged<String>? onSubmitted;
+
   /// Crea una AppBar personalizada.
   const CustomAppBar({
     super.key,
@@ -42,6 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.searchHintText,
     this.searchController,
     this.onSearchChanged,
+    this.onSubmitted,
   });
 
   @override
@@ -57,9 +61,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? Container(
               constraints: BoxConstraints(maxWidth: 600),
               child: AppSearchBar(
-                controller: searchController,
+                controller: searchController ?? TextEditingController(),
                 hintText: searchHintText,
                 onChanged: onSearchChanged,
+                onSubmitted: onSubmitted,
               ),
             )
           : AppText(text: title ?? '', style: AppTextStyles.headline2),
