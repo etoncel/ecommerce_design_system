@@ -18,6 +18,7 @@ export 'package:ecommerce_sample_design_system/src/atoms/app_icon.dart';
 export 'package:ecommerce_sample_design_system/src/atoms/app_circular_image.dart';
 export 'package:ecommerce_sample_design_system/src/atoms/app_tag.dart';
 export 'package:ecommerce_sample_design_system/src/atoms/app_input.dart';
+export 'package:ecommerce_sample_design_system/src/atoms/app_image.dart';
 
 // Molecules
 export 'package:ecommerce_sample_design_system/src/molecules/app_search_bar.dart';

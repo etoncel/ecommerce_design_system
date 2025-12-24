@@ -47,4 +47,11 @@ class AppTextStyles {
     fontWeight: AppTypographyTokens.fontWeightBold,
     color: AppColors.white,
   );
+
+  /// Estilo para el texto de los botones pequeños.
+  static const TextStyle smallButton = TextStyle(
+    fontSize: AppTypographyTokens.fontSizeSmallButton,
+    fontWeight: AppTypographyTokens.fontWeightBold,
+    color: AppColors.white,
+  );
 }

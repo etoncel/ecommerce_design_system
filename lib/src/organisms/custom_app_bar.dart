@@ -50,16 +50,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: AppColors.white,
       foregroundColor: AppColors.textDark,
-      leading: leading ??
-          const AppIcon(
-            iconData: AppIcons.menu,
-            color: AppColors.textDark,
-          ),
+      leading:
+          leading ??
+          const AppIcon(iconData: AppIcons.menu, color: AppColors.textDark),
       title: showSearchBar
-          ? AppSearchBar(
-              controller: searchController,
-              hintText: searchHintText,
-              onChanged: onSearchChanged,
+          ? Container(
+              constraints: BoxConstraints(maxWidth: 600),
+              child: AppSearchBar(
+                controller: searchController,
+                hintText: searchHintText,
+                onChanged: onSearchChanged,
+              ),
             )
           : AppText(text: title ?? '', style: AppTextStyles.headline2),
       centerTitle: true,

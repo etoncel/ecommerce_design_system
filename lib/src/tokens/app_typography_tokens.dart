@@ -10,6 +10,7 @@ class AppTypographyTokens {
   static const double fontSizeBody = 14.0;
   static const double fontSizeCaption = 12.0;
   static const double fontSizeButton = 16.0;
+  static const double fontSizeSmallButton = 12.0;
   static const FontWeight fontWeightBold = FontWeight.w700;
   static const FontWeight fontWeightNormal = FontWeight.w400;
 }

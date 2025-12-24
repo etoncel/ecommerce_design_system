@@ -38,7 +38,15 @@ class AppSearchBar extends StatelessWidget {
         keyboardType: TextInputType.text,
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: AppSpacing.spaceS),
-          child: AppIcon(iconData: AppIcons.search, color: AppColors.textLight),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: AppButton(
+              onPressed: () {},
+              isPrimary: false,
+              text: "Search",
+              size: AppSizes.sXS,
+            ),
+          ),
         ),
       ),
     );

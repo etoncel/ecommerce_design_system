@@ -48,14 +48,18 @@ class AppInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final borderRadius = BorderRadius.circular(AppSpacing.spaceL);
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      textAlignVertical: TextAlignVertical.bottom,
       validator: validator,
       onChanged: onChanged,
       style: AppTextStyles.body.copyWith(color: AppColors.textDark),
       decoration: InputDecoration(
+        filled: true,
+        fillColor: AppColors.textLight.withAlpha(50),
         labelText: labelText,
         hintText: hintText,
         labelStyle: AppTextStyles.body.copyWith(color: AppColors.textLight),
@@ -66,23 +70,23 @@ class AppInput extends StatelessWidget {
         ),
         suffixIcon: suffixIcon, // Pasar el suffixIcon al InputDecoration
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+          borderRadius: borderRadius,
           borderSide: const BorderSide(color: AppColors.textLight),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+          borderRadius: borderRadius,
           borderSide: const BorderSide(color: AppColors.textLight),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+          borderRadius: borderRadius,
           borderSide: const BorderSide(color: AppColors.primary),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+          borderRadius: borderRadius,
           borderSide: const BorderSide(color: Colors.red),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+          borderRadius: borderRadius,
           borderSide: const BorderSide(color: Colors.red),
         ),
       ),

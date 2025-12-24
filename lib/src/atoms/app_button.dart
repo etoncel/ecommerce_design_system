@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
-import 'package:ecommerce_sample_design_system/src/foundations/app_colors.dart';
-import 'package:ecommerce_sample_design_system/src/foundations/app_text_styles.dart';
+import 'package:ecommerce_sample_design_system/ecommerce_sample_design_system.dart';
+
 import 'package:flutter/material.dart';
 
 /// El widget `AppButton` es un botón personalizado que se puede utilizar en toda la
@@ -17,6 +17,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     this.isPrimary = true,
+    this.size = AppSizes.sM,
     super.key,
   });
 
@@ -31,6 +32,9 @@ class AppButton extends StatelessWidget {
   /// El valor predeterminado es `true` (estilo primario).
   final bool isPrimary;
 
+  // /// Altura del botón
+  final double? size;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -38,14 +42,13 @@ class AppButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: isPrimary ? AppColors.primary : AppColors.secondary,
         foregroundColor: Colors.white,
-        textStyle: AppTextStyles.button,
+        textStyle: size == AppSizes.sM
+            ? AppTextStyles.button
+            : AppTextStyles.smallButton,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppSizes.sL),
         ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 32,
-          vertical: 16,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       ),
       child: Text(text),
     );
