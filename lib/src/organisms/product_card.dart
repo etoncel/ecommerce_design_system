@@ -20,6 +20,7 @@ class ProductCard extends StatelessWidget {
     required this.subtitle,
     this.rating = 0.0,
     this.onTap,
+    this.cardOrientation = Axis.vertical,
     super.key,
   });
 
@@ -31,6 +32,12 @@ class ProductCard extends StatelessWidget {
 
   /// El precio del producto.
   final String subtitle;
+
+  /// Indica si la dirección en que se deben alinear la imagen y grupo de textos
+  /// de la tarjeta.
+  ///
+  /// Por defecto es vertical [Axis.vertical]
+  final Axis cardOrientation;
 
   /// La calificación del producto.
   ///
@@ -59,30 +66,40 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(child: AppCircularImage(imageUrl: imageUrl, size: 100)),
-            AppSpacing.verticalS,
-            AppText(
-              text: title,
-              style: AppTextStyles.body.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.textDark,
+        child: _getAlignmentWidget([
+          Center(child: AppCircularImage(imageUrl: imageUrl, size: 100)),
+          Column(
+            children: [
+              AppSpacing.verticalS,
+              AppText(
+                text: title,
+                style: AppTextStyles.body.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textDark,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            AppSpacing.verticalXxs,
-            AppText(
-              text: subtitle,
-              style: AppTextStyles.headline2.copyWith(color: AppColors.primary),
-            ),
-            AppSpacing.verticalXxs,
-            ProductRating(rating: rating),
-          ],
-        ),
+              AppSpacing.verticalXxs,
+              AppText(
+                text: subtitle,
+                style: AppTextStyles.headline2.copyWith(
+                  color: AppColors.primary,
+                ),
+              ),
+              AppSpacing.verticalXxs,
+              ProductRating(rating: rating),
+            ],
+          ),
+        ]),
       ),
     );
+  }
+
+  Widget _getAlignmentWidget(List<Widget> children) {
+    return switch (cardOrientation) {
+      Axis.vertical => Column(children: children),
+      Axis.horizontal => Row(children: children),
+    };
   }
 }
