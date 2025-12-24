@@ -1,3 +1,17 @@
+## 0.0.4
+
+### Añadido
+- Añadido el parámetro de tamaño al `AppButton`.
+- Añadido el nuevo átomo `AppImage`.
+- Añadidos tokens de tipografía.
+
+### Modificado
+- Cambiado el color de fondo y refactorizado el `borderRadius` del `AppInput`.
+- Modificado el botón de la barra de búsqueda para incluir `padding`.
+- Modificada la restricción de ancho de la barra de aplicación personalizada para la barra de búsqueda.
+- Cambiados los tokens de color para los colores `primary`, `second` y `textDark`.
+- Añadido el nuevo estilo de texto `smallButton`.
+
 ## 0.0.3 
 
 ### Modificado
