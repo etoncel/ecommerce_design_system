@@ -39,7 +39,7 @@ class VerticalProductList extends StatelessWidget {
             return productCards[index];
           },
           separatorBuilder: (context, index) =>
-              const SizedBox(width: AppSpacing.spaceS),
+              const SizedBox(height: AppSpacing.spaceS),
         ),
       ],
     );

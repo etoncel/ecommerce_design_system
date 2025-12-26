@@ -66,40 +66,47 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-        child: _getAlignmentWidget([
-          Center(child: AppCircularImage(imageUrl: imageUrl, size: 100)),
-          Column(
+        child: switch (cardOrientation) {
+          Axis.vertical => Column(
             children: [
-              AppSpacing.verticalS,
-              AppText(
-                text: title,
-                style: AppTextStyles.body.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textDark,
-                ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              AppSpacing.verticalXxs,
-              AppText(
-                text: subtitle,
-                style: AppTextStyles.headline2.copyWith(
-                  color: AppColors.primary,
-                ),
-              ),
-              AppSpacing.verticalXxs,
-              ProductRating(rating: rating),
+              Center(child: AppCircularImage(imageUrl: imageUrl, size: 100)),
+              _getTextsWidgets(),
             ],
           ),
-        ]),
+          Axis.horizontal => Row(
+            children: [
+              Center(child: AppCircularImage(imageUrl: imageUrl, size: 100)),
+              AppSpacing.horizontalM,
+              Flexible(child: _getTextsWidgets()),
+            ],
+          ),
+        },
       ),
     );
   }
 
-  Widget _getAlignmentWidget(List<Widget> children) {
-    return switch (cardOrientation) {
-      Axis.vertical => Column(children: children),
-      Axis.horizontal => Row(children: children),
-    };
+  Widget _getTextsWidgets() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AppSpacing.verticalS,
+        AppText(
+          text: title,
+          style: AppTextStyles.body.copyWith(
+            fontWeight: FontWeight.bold,
+            color: AppColors.textDark,
+          ),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        AppSpacing.verticalXxs,
+        AppText(
+          text: subtitle,
+          style: AppTextStyles.headline2.copyWith(color: AppColors.primary),
+        ),
+        AppSpacing.verticalXxs,
+        ProductRating(rating: rating),
+      ],
+    );
   }
 }
