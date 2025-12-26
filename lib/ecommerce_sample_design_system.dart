@@ -25,6 +25,7 @@ export 'package:ecommerce_sample_design_system/src/molecules/app_search_bar.dart
 export 'package:ecommerce_sample_design_system/src/molecules/product_rating.dart';
 export 'package:ecommerce_sample_design_system/src/molecules/quantity_selector.dart';
 export 'package:ecommerce_sample_design_system/src/molecules/single_list_item.dart';
+export 'package:ecommerce_sample_design_system/src/molecules/quantity_indicator.dart';
 
 // Organisms
 export 'package:ecommerce_sample_design_system/src/organisms/product_card.dart';
@@ -33,6 +34,7 @@ export 'package:ecommerce_sample_design_system/src/organisms/custom_app_bar.dart
 export 'package:ecommerce_sample_design_system/src/organisms/custom_bottom_nav_bar.dart';
 export 'package:ecommerce_sample_design_system/src/organisms/single_horizontal_list.dart';
 export 'package:ecommerce_sample_design_system/src/organisms/vertical_product_list.dart';
+export 'package:ecommerce_sample_design_system/src/organisms/quantity_indicator_list.dart';
 
 // Models
 export 'package:ecommerce_sample_design_system/src/ui_models/single_list_item_data.dart';

@@ -62,6 +62,9 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
             const SizedBox(height: AppSpacing.spaceL),
             _buildSectionTitle('ProductCard (Individual)'),
             _buildProductCards(),
+            const SizedBox(height: AppSpacing.spaceL),
+            _buildSectionTitle('QuantityIndicatorList'),
+            _buildQuantityIndicatorList(),
           ],
         ),
       ),
@@ -193,6 +196,18 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
           rating: 3.8,
           onTap: () {},
         ),
+      ],
+    );
+  }
+
+  Widget _buildQuantityIndicatorList() {
+    return const QuantityIndicatorList(
+      title: 'Categories',
+      indicators: [
+        QuantityIndicator(name: 'Zapatos', quantity: 1200),
+        QuantityIndicator(name: 'Electrodomésticos', quantity: 320),
+        QuantityIndicator(name: 'Frutas', quantity: 4333),
+        QuantityIndicator(name: 'Verduras', quantity: 250),
       ],
     );
   }
