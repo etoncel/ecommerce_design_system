@@ -21,8 +21,10 @@ class MoleculesShowcaseScreen extends StatelessWidget {
             _buildSingleListItems(),
             _buildSectionTitle('QuantitySelector'),
             _buildQuantitySelector(),
-            _buildSectionTitle('QuantityIndicator'), // Nuevo
-            _buildQuantityIndicator(), // Nuevo
+            _buildSectionTitle('QuantityIndicator'),
+            _buildQuantityIndicator(),
+            _buildSectionTitle('AppIconButton'),
+            _buildAppIconButton(),
           ],
         ),
       ),
@@ -43,6 +45,27 @@ class MoleculesShowcaseScreen extends StatelessWidget {
           QuantityIndicator(name: 'Frutas', quantity: 4333),
         ],
       ),
+    );
+  }
+
+  Widget _buildAppIconButton() {
+    return Column(
+      children: [
+        AppIconButton(
+          text: "Jewerly",
+          icon: AppIcon(iconData: Icons.close),
+        ),
+        AppSpacing.verticalS,
+        AppIconButton(
+          text: "Clothe",
+          icon: AppIcon(iconData: Icons.close),
+        ),
+        AppSpacing.verticalS,
+        AppIconButton(
+          text: "Electronics",
+          icon: AppIcon(iconData: Icons.close),
+        ),
+      ],
     );
   }
 }
