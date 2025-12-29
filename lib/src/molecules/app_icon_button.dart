@@ -11,22 +11,33 @@ class AppIconButton extends StatelessWidget {
 
   /// El icono que se mostrará en el botón.
   final AppIcon icon;
-  const AppIconButton({super.key, required this.text, required this.icon});
+
+  /// Función llamada al tocar el botón
+  final VoidCallback onTap;
+  const AppIconButton({
+    super.key,
+    required this.text,
+    required this.icon,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppSpacing.spaceXs),
-      decoration: BoxDecoration(
-        border: BoxBorder.all(color: AppColors.primary, width: 1),
-        borderRadius: BorderRadius.circular(AppSpacing.spaceS),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          AppText(text: text, style: AppTextStyles.caption),
-          icon,
-        ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: AppSpacing.spaceXs),
+        decoration: BoxDecoration(
+          border: BoxBorder.all(color: AppColors.primary, width: 1),
+          borderRadius: BorderRadius.circular(AppSpacing.spaceS),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AppText(text: text, style: AppTextStyles.caption),
+            icon,
+          ],
+        ),
       ),
     );
   }
