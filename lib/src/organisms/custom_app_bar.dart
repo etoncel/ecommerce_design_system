@@ -35,6 +35,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Función de devolución de llamada que se llama cuando el usuario envía el texto (ej. presiona Enter).
   final ValueChanged<String>? onSubmitted;
 
+  /// Función que se llama cuando se toca el botón [leading]
+  final VoidCallback? onTapLeadingButton;
+
   /// Crea una AppBar personalizada.
   const CustomAppBar({
     super.key,
@@ -46,6 +49,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.searchController,
     this.onSearchChanged,
     this.onSubmitted,
+    this.onTapLeadingButton,
   });
 
   @override
@@ -54,9 +58,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: AppColors.white,
       foregroundColor: AppColors.textDark,
-      leading:
-          leading ??
-          const AppIcon(iconData: AppIcons.menu, color: AppColors.textDark),
+      leading: GestureDetector(
+        onTap: onTapLeadingButton,
+        child:
+            leading ??
+            const AppIcon(iconData: AppIcons.menu, color: AppColors.textDark),
+      ),
       title: showSearchBar
           ? Container(
               constraints: BoxConstraints(maxWidth: 600),

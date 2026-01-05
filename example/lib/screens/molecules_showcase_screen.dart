@@ -54,16 +54,19 @@ class MoleculesShowcaseScreen extends StatelessWidget {
         AppIconButton(
           text: "Jewerly",
           icon: AppIcon(iconData: Icons.close),
+          onTap: () {},
         ),
         AppSpacing.verticalS,
         AppIconButton(
           text: "Clothe",
           icon: AppIcon(iconData: Icons.close),
+          onTap: () {},
         ),
         AppSpacing.verticalS,
         AppIconButton(
           text: "Electronics",
           icon: AppIcon(iconData: Icons.close),
+          onTap: () {},
         ),
       ],
     );
