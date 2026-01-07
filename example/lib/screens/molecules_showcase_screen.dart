@@ -25,6 +25,8 @@ class MoleculesShowcaseScreen extends StatelessWidget {
             _buildQuantityIndicator(),
             _buildSectionTitle('AppIconButton'),
             _buildAppIconButton(),
+            _buildSectionTitle('FilterButton'),
+            _buildFilterButton(),
           ],
         ),
       ),
@@ -67,6 +69,58 @@ class MoleculesShowcaseScreen extends StatelessWidget {
           text: "Electronics",
           icon: AppIcon(iconData: Icons.close),
           onTap: () {},
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFilterButton() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Default State (No Filter):'),
+        AppSpacing.verticalXs,
+        FilterButton(
+          onTap: () {
+            // ignore: avoid_print
+            print('Filter button tapped - default state');
+          },
+          selectedFilter: null,
+          hasActiveFilter: false,
+        ),
+        AppSpacing.verticalM,
+        const Text('Active State (Electronics Filter):'),
+        AppSpacing.verticalXs,
+        FilterButton(
+          onTap: () {
+            // ignore: avoid_print
+            print('Filter button tapped - active state');
+          },
+          selectedFilter: 'Electronics',
+          hasActiveFilter: true,
+        ),
+        AppSpacing.verticalM,
+        const Text('Active State (Long Category Name):'),
+        AppSpacing.verticalXs,
+        FilterButton(
+          onTap: () {
+            // ignore: avoid_print
+            print('Filter button tapped - long name');
+          },
+          selectedFilter: 'Home & Garden Supplies',
+          hasActiveFilter: true,
+        ),
+        AppSpacing.verticalM,
+        const Text('Custom Semantic Label:'),
+        AppSpacing.verticalXs,
+        FilterButton(
+          onTap: () {
+            // ignore: avoid_print
+            print('Filter button tapped - custom label');
+          },
+          selectedFilter: null,
+          hasActiveFilter: false,
+          semanticLabel: 'Custom filter button for accessibility',
         ),
       ],
     );

@@ -47,4 +47,7 @@ class AppIcons {
 
   /// Ícono de perfil de usuario.
   static const IconData profile = Icons.person;
+
+  /// Ícono de filtro.
+  static const IconData filter = Icons.filter_list;
 }

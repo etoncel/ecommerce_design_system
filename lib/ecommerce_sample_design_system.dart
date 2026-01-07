@@ -10,6 +10,8 @@ export 'package:ecommerce_sample_design_system/src/foundations/app_spacing.dart'
 export 'package:ecommerce_sample_design_system/src/foundations/app_sizes.dart';
 export 'package:ecommerce_sample_design_system/src/foundations/app_icons.dart';
 export 'package:ecommerce_sample_design_system/src/foundations/app_theme.dart';
+export 'package:ecommerce_sample_design_system/src/foundations/app_breakpoints.dart';
+export 'package:ecommerce_sample_design_system/src/foundations/responsive_breakpoints.dart';
 
 // Atoms
 export 'package:ecommerce_sample_design_system/src/atoms/app_button.dart';
@@ -27,6 +29,7 @@ export 'package:ecommerce_sample_design_system/src/molecules/quantity_selector.d
 export 'package:ecommerce_sample_design_system/src/molecules/single_list_item.dart';
 export 'package:ecommerce_sample_design_system/src/molecules/quantity_indicator.dart';
 export 'package:ecommerce_sample_design_system/src/molecules/app_icon_button.dart';
+export 'package:ecommerce_sample_design_system/src/molecules/filter_button.dart';
 
 // Organisms
 export 'package:ecommerce_sample_design_system/src/organisms/product_card.dart';
