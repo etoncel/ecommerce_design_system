@@ -1,5 +1,4 @@
-import 'package:ecommerce_sample_design_system/src/atoms/app_text.dart';
-import 'package:ecommerce_sample_design_system/src/foundations/app_text_styles.dart';
+import 'package:ecommerce_sample_design_system/ecommerce_sample_design_system.dart';
 import 'package:flutter/material.dart';
 
 /// Un widget para mostrar un nombre y una cantidad con estilos diferentes
@@ -30,8 +29,9 @@ class QuantityIndicator extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         AppText(text: name, style: AppTextStyles.headline2),
+        AppSpacing.horizontalS,
         AppText(
-          text: ' ($quantity)',
+          text: '($quantity)',
           style: AppTextStyles.body.copyWith(color: Colors.grey),
         ),
       ],

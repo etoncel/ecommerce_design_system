@@ -15,6 +15,7 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
   bool _showSearchBar = false;
   final _searchController = TextEditingController();
   int _currentIndex = 0;
+  String? _selectedFilter;
 
   @override
   void dispose() {
@@ -65,6 +66,9 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
             const SizedBox(height: AppSpacing.spaceL),
             _buildSectionTitle('QuantityIndicatorList'),
             _buildQuantityIndicatorList(),
+            const SizedBox(height: AppSpacing.spaceL),
+            _buildSectionTitle('FilterModal'),
+            _buildFilterModal(),
           ],
         ),
       ),
@@ -209,6 +213,140 @@ class _OrganismsShowcaseScreenState extends State<OrganismsShowcaseScreen> {
         QuantityIndicator(name: 'Frutas', quantity: 4333),
         QuantityIndicator(name: 'Verduras', quantity: 250),
       ],
+    );
+  }
+
+  Widget _buildFilterModal() {
+    final indicators = [
+      const QuantityIndicator(name: 'Electronics', quantity: 150),
+      const QuantityIndicator(name: 'Clothing', quantity: 320),
+      const QuantityIndicator(name: 'Books', quantity: 89),
+      const QuantityIndicator(name: 'Home & Garden', quantity: 245),
+      const QuantityIndicator(name: 'Sports', quantity: 67),
+      const QuantityIndicator(name: 'Toys', quantity: 123),
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Show current filter state
+        if (_selectedFilter != null)
+          Container(
+            margin: const EdgeInsets.only(bottom: AppSpacing.spaceM),
+            padding: const EdgeInsets.all(AppSpacing.spaceS),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+              border: Border.all(color: AppColors.primary),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const AppIcon(
+                  iconData: AppIcons.filter,
+                  size: 16,
+                  color: AppColors.primary,
+                ),
+                const SizedBox(width: AppSpacing.spaceXs),
+                AppText(
+                  text: 'Active filter: $_selectedFilter',
+                  style: AppTextStyles.body.copyWith(
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+        // Button to open modal
+        ElevatedButton.icon(
+          onPressed: () => _showFilterModal(indicators),
+          icon: const AppIcon(
+            iconData: AppIcons.filter,
+            size: 16,
+            color: AppColors.background,
+          ),
+          label: AppText(
+            text: _selectedFilter ?? 'Open Filter Modal',
+            style: AppTextStyles.body.copyWith(
+              color: AppColors.background,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.spaceM,
+              vertical: AppSpacing.spaceS,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+            ),
+          ),
+        ),
+
+        const SizedBox(height: AppSpacing.spaceM),
+
+        // Instructions
+        Container(
+          padding: const EdgeInsets.all(AppSpacing.spaceS),
+          decoration: BoxDecoration(
+            color: AppColors.textLight.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(AppSpacing.spaceXs),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppText(
+                text: 'FilterModal Features:',
+                style: AppTextStyles.body.copyWith(fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: AppSpacing.spaceXs),
+              AppText(
+                text: '• Bottom sheet modal with rounded corners',
+                style: AppTextStyles.caption,
+              ),
+              AppText(
+                text: '• Drag handle and close button',
+                style: AppTextStyles.caption,
+              ),
+              AppText(
+                text: '• Clear filter option when active',
+                style: AppTextStyles.caption,
+              ),
+              AppText(
+                text: '• Dismissible by tap outside, drag, or escape key',
+                style: AppTextStyles.caption,
+              ),
+              AppText(
+                text: '• Full accessibility support with focus management',
+                style: AppTextStyles.caption,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _showFilterModal(List<QuantityIndicator> indicators) {
+    FilterModal.show(
+      context: context,
+      indicators: indicators,
+      selectedFilter: _selectedFilter,
+      onIndicatorSelected: (index) {
+        setState(() {
+          _selectedFilter = indicators[index].name;
+        });
+        debugPrint('Selected filter: ${indicators[index].name}');
+      },
+      onFilterUnselected: () {
+        setState(() {
+          _selectedFilter = null;
+        });
+        debugPrint('Filter cleared');
+      },
     );
   }
 }
